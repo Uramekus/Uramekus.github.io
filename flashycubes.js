@@ -1,7 +1,7 @@
 // this is free and unencumbered software released into the public domain
 // refer to the attached UNLICENSE or http://unlicense.org/
 //
-// music: To the Next Destination by TeknoAXE
+// music: Pew3x by Kubbi
 //
 // the music is licensed under a Creative Commons Attribution 4.0
 // International License https://creativecommons.org/licenses/by/4.0/
@@ -16,7 +16,7 @@ var flashycubes = {};
   var AMPLITUDE_SAMPLES = 1024;
   var N_STARS = 727;
   var PARALLAX_AMOUNT = 0.4;
-  var MUSIC_FILE = 'To_the_Next_Destination.ogg';
+  var MUSIC_FILE = 'PewPewPew.mp3';
   var MUSIC_OFFSET = 25;
   var FADE_TIME = 5;
   var VOLUME_FADE_TIME = 0.1;
@@ -207,7 +207,7 @@ var flashycubes = {};
   }
 
   function drawBackground() {
-    gfx.fillStyle = rgb(low * 30, high * 30, mid * 30);
+    gfx.fillStyle = rgb(low * 30, high * 50, mid * 90);
     gfx.fillRect(0, 0, size[0], size[1]);
   }
 
@@ -224,7 +224,7 @@ var flashycubes = {};
 
   function drawCube() {
     gfx.lineWidth = lineWidth;
-    gfx.strokeStyle = rgba(low * 255, mid * 128, high * 128,
+    gfx.strokeStyle = rgba(247, 202, 201,
       0.8 + amplitude);
     strokeCube(parallax[0], parallax[1], 4, 1 + amplitude,
       rotation, rotation * 0.75);

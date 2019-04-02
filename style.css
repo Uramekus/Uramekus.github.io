@@ -33,6 +33,12 @@ html, body, ul, li {
   z-index: 5;
 }
 
+.bottom{
+ position: absolute;
+  bottom: 10px;
+  width: 50%;
+}
+
 ul {
   font-weight: 600;
   list-style-type: none;
