@@ -424,6 +424,8 @@ var flashycubes = {};
     moveTo(back[3]);
     lineTo(front[3]);
 
+
+
     gfx.stroke();
   }
 
