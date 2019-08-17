@@ -50,6 +50,8 @@ var flashycubes = {};
   var rotation = 0;
   var parallax = [0, 0];
   var lineWidth = 2;
+  var froggies = 10;
+  var frogpond = [];
 
   function initGraphics(canvas) {
     gfx = canvas.getContext('2d');
@@ -57,6 +59,7 @@ var flashycubes = {};
     window.addEventListener('resize', resize, false);
     window.addEventListener('wheel', wheel, false);
     window.addEventListener('mousemove', mousemove, false);
+    window.addEventListener('click', mouseclick, false);
     window.requestAnimationFrame(tick);
   }
 
@@ -144,6 +147,15 @@ var flashycubes = {};
       ev.clientY / gfx.canvas.height]
       .clamp(0, 1)
       .multiplyScalar(PARALLAX_AMOUNT);
+  }
+
+
+  function mouseclick(e){
+	  var cX = e.clientX;
+	  var cY = e.clientY;
+	  if (e.button === 0){
+	  	spawnfrogs(cX, cY);
+	  }
   }
 
   function updateAmplitude() {
@@ -245,6 +257,9 @@ var flashycubes = {};
     draw();
 
     window.requestAnimationFrame(tick);
+    for (var i = 0; i < frogpond.length; i++){
+	frogpond[i].update();
+    }
   }
 
   flashycubes.init = init;
@@ -308,6 +323,42 @@ var flashycubes = {};
   }
 
   // --------------------------------------------------------------------
+
+  function Frog(x, y, index){
+    this.x = x;
+    this.y = y;
+    this.dx = Math.random()*10-5;
+    this.dy = Math.random()*10-5;
+    this.id = index;
+    this.life = 0;
+    this.maxLife = Math.random()*(1000-400)+400;
+
+
+    this.draw = () => {
+      gfx.beginPath();
+      gfx.font = '30px Twemoji';
+      gfx.strokeText("🐸", this.x, this.y);
+    }
+
+    this.update = () => {
+      this.life++;
+      if (this.life >= this.maxLife){
+        delete frogpond[this.id];
+      }
+      this.x+=this.dx;
+      this.y+=this.dy;
+      this.dy += 0.4;
+      this.draw();
+
+    	}
+    }
+
+  function spawnfrogs(x, y){
+      frogpond = [];
+      for (var i = 0; i < froggies; i++){
+    	  frogpond.push(new Frog(x, y, i));
+    	}
+  }
 
   function addAngle(angle, delta) {
     var res = (angle + delta) % (2*Math.PI);
