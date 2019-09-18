@@ -10,7 +10,7 @@ html, body {
 }
 
 html, body, ul, li {
-  color: #aaa;
+  color: rgb(5, 2, 24);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
     monospace, Courier;
   font-size: calc(0.9em + 0.15vw);
@@ -19,7 +19,7 @@ html, body, ul, li {
 }
 
 .container {
-  overflow: hidden;
+  /*overflow: hidden;*/
   position: relative;
   z-index: 1;
 }
@@ -39,6 +39,20 @@ html, body, ul, li {
   width: 50%;
 }
 
+.center{
+  position: absolute; 
+  top: 10%;
+  left: 30%;
+  font-size: 420px;
+}
+
+.contents2 {
+  color: white;
+  position: absolute;
+  z-index: 5;
+  font-size: 20px;
+}
+
 ul {
   font-weight: 600;
   list-style-type: none;
@@ -47,7 +61,7 @@ ul {
 li { padding: calc(0.1em + 0.1vw) calc(0.1em + 0.1vw); }
 
 li a {
-  color: #aaa;
+  color: rgb(28, 39, 189);
   display: block;
   text-decoration: none;
 }
