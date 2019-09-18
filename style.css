@@ -10,7 +10,7 @@ html, body {
 }
 
 html, body, ul, li {
-  color: rgb(5, 2, 24);
+  color: rgb(34, 0, 255);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
     monospace, Courier;
   font-size: calc(0.9em + 0.15vw);
